@@ -1,0 +1,165 @@
+<html>
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <style>
+        ul.file{
+            border:0px;
+        }
+    
+        ul.file li{
+            float: left;
+            list-style-type: none;
+            padding: 2px 20px;
+            margin: 2px;
+        }
+        
+        h1 {
+            font-size: 40px;
+            text-align: center;
+        }
+        
+        body {
+        	font-family:verdana;
+        }
+        
+        .headerLogo{
+          top:-65px;
+          height:150px;
+          line-height:150px;
+          width:100%;
+          max-width:10000px;
+          overflow:hidden;
+          
+        }
+        p{
+            padding-left:50;
+            line-height:2em;
+            padding-right:50;
+
+        }
+        img{
+            padding-left:50;
+
+        }
+        
+        h2{
+            text-align: center;
+
+        }
+        
+        h3{
+            padding-left:50;
+
+        }
+        body {
+            background-image: url("photo/grey.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+    </style>
+            <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+    </head>
+    
+    <body>
+        <!--Navigation bar-->
+        <div id="nav-placeholder">
+        </div>
+        
+        <script>
+        $(function(){
+          $("#nav-placeholder").load("nav.html");
+        });
+        </script>
+        <!--end of Navigation bar-->
+        <h1>ARCH/GARCH Models</h1>
+        <p>This page will fit our data with ARCH models and get the formula for our data.</p>
+        <br>
+        <hr>
+        
+        <h3>Take a look of our data again</h3>
+        <p>
+            We still use the stock price of the Boston beer company. The data are collected from 2019 until now.
+        </p>
+            <img src="photo/w41.png" width="550" height="400">  
+        <br>
+        <br>
+        <hr>
+        
+        <h3>Returns</h3>
+        <p>
+            This is the returns graph for our data. We get the return value and differencing our data after log-transformed.<br>
+            From this graph, we can see some volatility suddenly happened in our time series data. This means we may want to fit an ARCH model to see if some events influence the stock price over time.
+        </p>
+            <img src="photo/w42.png" width="550" height="400">  
+        <br>
+        <br>
+        <hr>
+        
+        <h3>ACF and PACF for Returns</h3>
+        <p>
+            This is the acf and pacf plots for returns data and the square of returns.<br>
+            Both of them do not show high correlations over lags.<br>
+            We may only want to fit the ARCH model with the Arima model (1,1,0) which we get in the previous steps.
+        </p>
+            <img src="photo/w43.png" width="550" height="400">  
+            <img src="photo/w44.png" width="550" height="400">  
+        <br>
+        <br>
+        <hr>
+        
+        <h3>Model diagnostic for ARIMA</h3>
+        <p>
+            Back to our model diagnostics for the ARIMA(1,1,0).<br>
+            The Standardized Residuals plot shows our data is stationary and has constant variance since they are centered.<br>
+            The acf of residuals also proves stationary. We can see most lags stay in the white noise area.<br>
+            The Normal Q-Q Plot of Residuals shows a linear relationship.<br>
+            We can see most p values are above the significant level (0.05) at the p-values for the Ljung-Box statistic plot. This means our model fit to the data.
+        </p>
+            <img src="photo/w45.png" width="550" height="400">  
+        <br>
+        <br>
+        <hr>
+        
+        <h3>Residuals</h3>
+        <p>
+             Squared residuals plot shows cluster of volatility. ACF abd PACF seems to die down.<br>
+             The residuals therefore show some patterns that might be modeled.<br>
+             We may want to fit the ARCH model with p from 1 to 4 to select the model ARCH model.
+        </p>
+            <img src="photo/w46.png" width="550" height="400">  
+        <br>
+        <br>
+        <hr>
+        
+        <h3>Model diagnostic for ARCH</h3>
+        <p>
+            After we fit different ARCH models, we get the best model with ARCH(1) for our data. However, a further test is needed.<br>
+            By doing the Ljung-Box Test, we get p-value equal to 0.953, which is higher than 0.05. We can not reject the null hypothesis of the Box Ljung Test that our model does not show a lack of fit. We may want to choose another model.
+
+        </p>
+        <img src="photo/w47.png" width="550" height="200">  
+        <img src="photo/w48.png" width="550" height="200">  
+        <br>
+        <br>
+        <hr>
+        
+        <h3>Equation</h3>
+        <p>
+           This is the equation for our dataset:
+
+        </p>
+        <img src="photo/w499.png" width="550" height="200">  <br><br>
+        <img src="photo/w411.png" width="550" height="200"> <br><br> 
+        <img src="photo/w412.png" width="550" height="100">  
+
+        <br>
+        <br>
+        <hr>
+       
+    </body>
+
+
+</html>

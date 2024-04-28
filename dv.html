@@ -1,0 +1,149 @@
+<html>
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <style>
+        ul.file{
+            border:0px;
+        }
+    
+        ul.file li{
+            float: left;
+            list-style-type: none;
+            padding: 2px 20px;
+            margin: 2px;
+        }
+        
+        h1 {
+            font-size: 40px;
+            text-align: center;
+        }
+        
+        body {
+        	font-family:verdana;
+        }
+        
+        .headerLogo{
+          top:-65px;
+          height:150px;
+          line-height:150px;
+          width:100%;
+          max-width:10000px;
+          overflow:hidden;
+          
+        }
+        p{
+            padding-left:50;
+            line-height:2em;
+            padding-right:50;
+
+        }
+        img{
+            padding-left:50;
+
+        }
+        
+        h2{
+            text-align: center;
+
+        }
+        
+        h3{
+            padding-left:50;
+
+        }
+        body {
+            background-image: url("photo/grey.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+    </style>
+            <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+    </head>
+    
+    <body>
+        <!--Navigation bar-->
+        <div id="nav-placeholder">
+        </div>
+        
+        <script>
+        $(function(){
+          $("#nav-placeholder").load("nav.html");
+        });
+        </script>
+        <!--end of Navigation bar-->
+        <h1>Data Visualization</h1>
+        <h2>There is some general data information I got from my datasets.</h2>
+        
+        <h3>Top 10 country with beer consumption</h3>
+        <p>
+            There are the top 10 countries that drink alcohol in the world.<br>
+            I use a pie chart to show this information to see if some countries have higher consumption than others.<br>
+            They have similar consumption and we can see most countries like Russia are in the north. There may need alcohol to resist the cold.<br>
+        </p>
+            <img src="photo/p1.jpg" width="450" height="400">  
+        <br>
+        <br>
+        <hr>
+        
+        <h3>The beer consumption in Russia</h3>
+        <p>
+            There is beer consumption in Russia based on different regions.<br>
+            From this graph we can see beer consumption has clearly tended to increase from 1998 to 2010.<br>
+            However, after 2010, the tendency has stopped and becomes decreasing.
+        </p>
+        <img src="photo/p2.png" width="1050" height="400"> 
+        <ul class = "file">
+        <li class = "file"><a href ="file/ru.html" target= "_blank">Russia beer consumption</a></li>
+        </ul>        
+        <br>
+        <br>
+        <hr>
+        
+        <h3>The beer consumption in different countries</h3>
+        <p>
+            There is beer consumption in the capital of different countries.<br>
+            When we compare this graph to Russia’s, we can not see the significant tendency of the beer consumption.<br>
+            This graph looks stationary.
+
+        </p>
+        <img src="photo/p3.png" width="1050" height="400"> 
+        <ul class = "file">
+        <li class = "file"><a href ="file/capital.html" target= "_blank">Capital's beer consumption</a></li>
+        </ul>        
+        <br>
+        <br>
+        <hr>
+        
+        <h3>The stock price in HongKong</h3>
+        <p>
+            It is also necessary to analyze the stock price of different beer companies.<br>
+            This is the stock price of a beer company in HongKong. The data choose the highest stock price per day from 2019 to 2022.<br>
+            We can see the stock increase from 2019 to 2011. However, it tends to decrease after 2021.
+        </p>
+        <img src="photo/f2.png" width="750" height="400"> 
+      
+        <br>
+        <br>
+        <hr>
+        
+          <h3>The stock price in Boston</h3>
+        <p>
+            Sam, Samuel Adams Boston Brewery is a famous beer company in Boston.<br>
+            The graph shows the similar situation as HongKong’s beer company at the first.<br>
+            However, when 2011 began,  the stock price still changed a lot and tended to decrease.
+        </p>
+        <img src="photo/f1.png" width="750" height="400"> 
+        <br>
+        <br>
+        <hr>
+        <h3>The Code for this page:</h3>
+        <ul class = "file">
+        <li class = "file"><a href ="file/web1.pdf" target= "_blank">Data Visualization</a></li>
+        </ul>
+    </body>
+
+
+</html>

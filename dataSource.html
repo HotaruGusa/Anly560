@@ -1,0 +1,146 @@
+<html>
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <style>
+        ul.file{
+            border:0px;
+        }
+    
+        ul.file li{
+            float: left;
+            list-style-type: none;
+            padding: 2px 20px;
+            margin: 2px;
+        }
+        
+        h1 {
+            font-size: 40px;
+            text-align: center;
+        }
+        
+        body {
+        	font-family:verdana;
+        }
+        
+        .headerLogo{
+          top:-65px;
+          height:150px;
+          line-height:150px;
+          width:100%;
+          max-width:10000px;
+          overflow:hidden;
+          
+        }
+        p{
+            padding-left:50;
+            line-height:2em;
+            padding-right:50;
+
+        }
+        
+        h2{
+            text-align: center;
+
+        }
+        
+        h3{
+            padding-left:50;
+
+        }
+        body {
+            background-image: url("photo/grey.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+    </style>
+            <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+    </head>
+    
+    <body>
+        <!--Navigation bar-->
+        <div id="nav-placeholder">
+        </div>
+        
+        <script>
+        $(function(){
+          $("#nav-placeholder").load("nav.html");
+        });
+        </script>
+        <!--end of Navigation bar-->
+        <h1>Data Sources</h1>
+        <h2>There are many different dataframe I have collected in the internet or using API.</h2>
+        <h3>Two dataset from Kaggle: </h3>
+        <p>
+            The drinks.csv record the different type of alcohol consumption around the world in 2010. <br>
+            Types include: beer, spirit, wine and total pure alcohol. <br>
+            The unit is average serving sizes per person.
+            <a href ="https://www.kaggle.com/mysarahmadbhat/alcohol-consumption" target= "_blank">https://www.kaggle.com/mysarahmadbhat/alcohol-consumption</a>
+        </p>
+        <p>
+            The russia.csv record the different alcohol consumption in Russia from 1998 to 2016. <br>
+            Types of alcohol include: wince, beer, vokda, champagne, brandy. <br>
+            The unit is itres by year per capita.
+            <a href ="https://www.kaggle.com/dwdkills/alcohol-consumption-in-russia" target= "_blank">https://www.kaggle.com/dwdkills/alcohol-consumption-in-russia</a>
+        </p>
+     
+     
+        <ul class = "file">
+        <li class = "file"><a href ="file/drinks.csv" target= "_blank">drinks.csv</a></li>
+        <li class = "file"><a href ="file/russia.csv" target= "_blank">russia.csv</a></li>
+
+        </ul>
+        <br>
+        <br>
+        <hr>
+        
+        
+        <h3>One dataset from ourworldindata.org: </h3>
+        <p>
+            The beer.csv collect the beer consumption in each country from 1961 to 2019. <br> The unit is litres per person.
+            <a href ="https://ourworldindata.org/alcohol-consumption" target= "_blank">https://ourworldindata.org/alcohol-consumption</a>
+        </p>
+        
+        <ul class = "file">
+        <li class = "file"><a href ="file/beer.csv" target= "_blank">beer.csv</a></li>
+
+        </ul>
+        <br>
+        <br>
+        <hr>
+        
+        <h3>Two dataset from data.world: </h3>
+        <p>
+            The capital.csv collect the different types of alcohol consumption for each capital of the US state from 1977 to 2018.<br>
+            Types include: beer, wine, spirit.<br>
+            The unit is gallon per person.
+        <a href ="https://data.world/scuttlemonkey/apparent-per-capita-alcohol-consumption" target= "_blank">https://data.world/scuttlemonkey/apparent-per-capita-alcohol-consumption</a>
+        </p>
+        
+        <ul class = "file">
+        <li class = "file"><a href ="file/capital.csv" target= "_blank">capital.csv</a></li>
+        </ul>
+        <br>
+        <br>
+        <hr>
+        
+        <h3>One dataset from Yahoo Finance: </h3>
+        <p>
+            I use the Yahoo Finance API to get this dataset. This is a beer company stock located in China from 2019 to 2021.
+        <a href ="https://finance.yahoo.com/quote/0291.HK?p=0291.HK&.tsrc=fin-srch" target= "_blank">https://finance.yahoo.com/quote/0291.HK?p=0291.HK&.tsrc=fin-srch</a>
+        </p>
+        
+        <ul class = "file">
+        <li class = "file"><a href ="file/HK_beer.csv" target= "_blank">HK_beer.csv</a></li>
+        <li class = "file"><a href ="file/DG.ipynb" target= "_blank">DG.ipynb</a></li>
+
+        </ul>
+        <br>
+        <br>
+        
+    </body>
+
+
+</html>

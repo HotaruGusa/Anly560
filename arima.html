@@ -1,0 +1,270 @@
+<html>
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <style>
+        ul.file{
+            border:0px;
+        }
+    
+        ul.file li{
+            float: left;
+            list-style-type: none;
+            padding: 2px 20px;
+            margin: 2px;
+        }
+        
+        h1 {
+            font-size: 40px;
+            text-align: center;
+        }
+        
+        body {
+        	font-family:verdana;
+        }
+        
+        .headerLogo{
+          top:-65px;
+          height:150px;
+          line-height:150px;
+          width:100%;
+          max-width:10000px;
+          overflow:hidden;
+          
+        }
+        p{
+            padding-left:50;
+            line-height:2em;
+            padding-right:50;
+
+        }
+        img{
+            padding-left:50;
+
+        }
+        
+        h2{
+            text-align: center;
+
+        }
+        
+        h3{
+            padding-left:50;
+
+        }
+        body {
+            background-image: url("photo/grey.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+    </style>
+            <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+    </head>
+    
+    <body>
+        <!--Navigation bar-->
+        <div id="nav-placeholder">
+        </div>
+        
+        <script>
+        $(function(){
+          $("#nav-placeholder").load("nav.html");
+        });
+        </script>
+        <!--end of Navigation bar-->
+        <h1>ARMA/ARIMA/SARIMA Models</h1>
+        <p>This page will fit our data with arima models and do the forecasting for our data.</p>
+        <br>
+        <hr>
+        
+
+        <h3>Acf plots for original data</h3>
+        <p>
+            This is the acf plot for our original data (after log transformed).<br>
+            We can see the high correlation for each lag after 0, which means our data is not stationary.
+        </p>
+            <img src="photo/w31.png" width="550" height="400">  
+        <br>
+        <br>
+        <hr>
+        
+        <h3>Difference the data</h3>
+        <p>
+            This is the acf plot after the first differencing.<br>
+            We can see there is only one lag and one has higher correlation.<br>
+            The adf test also shows our data is stationary with p < 0.05 right now.
+        </p>
+        <img src="photo/w32.png" width="550" height="400"> <br><br>
+        <img src="photo/w33.png" width="550" height="200"> 
+
+        <br>
+        <br>
+        <hr>
+        
+        <h3>ACF and PACF</h3>
+        <p>
+            After plotting the acf and pacf plots for our transformed data, there is only one high correlation at lag 1.<br>
+            We can select p from (0,1) and q from (0,1).
+        </p>
+        <img src="photo/w34.png" width="550" height="400"> 
+        <img src="photo/w35.png" width="550" height="400"> 
+
+        <br>
+        <br>
+        <hr>
+        
+        <h3>Select best model</h3>
+        <p>
+            For selecting the best model, we use different p, q values to fit our model.<br>
+            We can see that both AIC and BIC show p = 1 and q = 0 has minimum value.<br>
+            We select arima(1,1,0) for our data.
+        </p>
+        <img src="photo/w366.png" width="550" height="200"> 
+        <br>
+        <br>
+        <hr>
+        
+        <h3>Model diagnostic </h3>
+        <p>
+            This is the Model Diagnostics for the ARIMA(1,1,0).<br>
+            The Standardized Residuals plot shows our data is stationary and has constant variance since they are centered.<br>
+            The acf of residuals also proves stationary. We can see most lags stay in the white noise area.<br>
+            The Normal Q-Q Plot of Residuals shows a linear relationship.<br>
+            We can see most p values are above the significant level (0.05) at the p-values for the Ljung-Box statistic plot.<br>
+            The model diagnostics tell us our model works for the data.
+        </p>
+        <img src="photo/w377.png" width="750" height="550"> 
+        <br>
+        <br>
+        <hr>
+        
+        
+        <h3>Auto Arima</h3>
+        <p>
+            The auto.arima() function shows the best model is arima(2,2,1) which is different from ours.<br>
+            I think the reason is that I do not want to consider the difference after 1.<br>
+            Since our data is already stationary with d = 1, 2nd order or even go up-to 3rd order differencing may result in over difference.
+        </p>
+        <img src="photo/w38.png" width="550" height="300"> 
+        <br>
+        <br>
+        <hr>
+        
+        <h3>Forecasting with our model</h3>
+        <p>
+            We use our arima(1,1,0) model to predict the adjusted close price for the next 90 days.<br>
+            This plot shows the forecasting with confidence intervals 50 and 95.<br>
+            The forecasting shows the tendency of increasing for the SAM company’s stock price.
+        </p>
+        <img src="photo/w39.png" width="550" height="450"> 
+        <br>
+        <br>
+        <hr>
+        
+        <h3>Benchmark methods</h3>
+        <p>
+            The accuracy information and visualization for each Benchmark method is shown below.<br>
+            We can see our model arima(1,1,1) has the lower RMSE and MAE.<br>
+            Otherwise, the naive method also shows a low error rate and is similar to our model.<br>
+            The visualization also shows that our model and naive method are more fit to the data.
+        <p>
+            
+
+        </p>
+        <img src="photo/w301.png" width="550" height="500"> 
+        <img src="photo/w302.png" width="550" height="500"> 
+
+        <br>
+        <br>
+        <hr>
+        
+        <h2>SARIMA Models</h2>
+        <h3>ACF and PACF</h3>
+        <p>
+            From the previous acf and pacf graph, we can see there exist a spike in the first season where lag =5.<br>
+            In this case, we will test the SARIMA model with P = c(1,0) and Q = c(1,0) to check if exist the seasonal relationship.<br>
+            Also notes that the graph shows we will select p and q from c(0,1) since only the first lag has a significant correlation.
+        <p>
+            
+
+        </p>
+        <img src="photo/w34.png" width="550" height="400"> 
+        <img src="photo/w35.png" width="550" height="400"> 
+        <br>
+        <br>
+        <hr>
+
+        <h3>Select best model</h3>
+        <p>
+            Same as selecting the best model for ARIMA, we use different P, Q values to fit our model.<br>
+            We can see that both AIC and BIC show p = 1, d = 1, q = 0, P = 0, D = 1, Q = 0 has minimum value.<br>
+            We may select sarima(0,1,0) for our data. However, futher test is also important.
+        </p>
+        <img src="photo/w321.png" width="550" height="200"> 
+        <br>
+        <br>
+        <hr>
+        
+        <h3>Model diagnostic</h3>
+        <p>
+            When we use model (1,1,0)(0,1,0) reject the null hypothesis of the Box Ljung Test, which is that our model does not show a lack of fit. We may want to choose another model.<br>
+            After we select the model (1,1,0)(0,1,1) which has the second smallest AIC value, we see a high p-value with Box Ljung Test, which means our model fits the data.<br>
+            Otherwise, the residuals seem centered, qq plot is closer to a line than the previous model. Acf plot shows the stationary. We can judge that model (1,1,0)(0,1,1) is good.<br>
+
+        </p>
+        <img src="photo/w322.png" width="550" height="400"> 
+        <img src="photo/w323.png" width="550" height="400"> 
+        <br>
+        <br>
+        <hr>
+        
+        <h3>Forecasting with our model</h3>
+        <p>
+            We use our sarima(1,1,0)(0,1,1) model to predict the adjusted close price for the next 90 days.<br>
+            This plot shows the forecasting with confidence intervals 50 and 95.<br>
+            The forecasting shows the tendency of increasing for the SAM company’s stock price.
+        </p>
+        <img src="photo/w324.png" width="550" height="450"> 
+        <br>
+        <br>
+        <hr>
+        
+        <h3>Benchmark methods</h3>
+        <p>
+            The accuracy information and visualization for each Benchmark method is shown below.<br>
+            We can see the naive method and drift method has similar RMSE to our model.<br>
+            However, our model (1,1,0)(0,1,1) clearly shows the lowest MAE and MAPE.
+            The visualization also shows how different methods fit to the data.
+        <p>
+            
+
+        </p>
+        <img src="photo/w325.png" width="800" height="250"> <br> <br>
+        <img src="photo/w326.png" width="650" height="500"> 
+
+        <br>
+        <br>
+        <hr>
+        
+        <h3>CV forecasting</h3>
+        <p>
+            This is the MEA result for seasonal cross validation using 1 step ahead forecasts and 5 steps ahead forecasts.<br>
+            The 1 step ahead forecasts show the MAE for all predicts equal to 0.02392541.<br>
+            The 5 step ahead forecasts show the MAE for all predicts in the graph. The value is around 0.02 to 0.03. A futher prediction has a higher MAE value.
+
+        <p>
+            
+
+        </p>
+        <img src="photo/w328.png" width="250" height="100"> <br><br>
+
+        <img src="photo/w327.png" width="650" height="500"> 
+        <br>
+        <br>
+        <hr>
+    </body>
+
+
+</html>

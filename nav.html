@@ -1,0 +1,58 @@
+<html>
+    <style>
+
+    li.nav {
+        display: inline-block;
+        padding: 15;
+        position: relative;
+    }
+    
+    a{
+        color: black;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+    
+    a:hover{
+        color: darkblue;
+    }
+
+    ul.nav{
+        text-align: center;
+        background-color: #afb6c0;
+        border: thin solid black;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+ 
+    }
+    
+    a::before{
+        content: "";
+        display: block;
+        height:5px;
+        background-color: #444;
+        width: 0%;
+        transition: all ease-in-out 1000ms;
+    }
+    
+    a:hover::before{
+    width:100%
+    }
+    
+
+
+    </style>
+      <ul class="nav">
+        <li class = "nav"><a href ="index.html">Home</a> </li>
+        <li class = "nav"><a href="introduction.html">Introduction</a> </li>
+        <li class = "nav"><a href ="dataSource.html">Data Sources</a> </li>
+        <li class = "nav"><a href ="dv.html">Data Visualizationa</a> </li>
+        <li class = "nav"><a href ="exploring.html">Exploratory Data Analysis</a> </li>
+        <li class="nav"><a href ="arima.html">ARMA/ARIMA/SARIMA Models</a> </li>
+        <li class="nav"><a href ="ARM.html">Spectral Analysis and Filtering</a> </li>
+        <li class="nav"><a href ="arch.html">Financial Time Series Models (ARCH/GARCH)</a> </li>
+        <li class="nav"><a href ="dl.html">Deep Learning for TS</a> </li>
+        <li class="nav"><a href ="conclusions.html">Conclusions</a> </li> 
+    </ul>
+</html>

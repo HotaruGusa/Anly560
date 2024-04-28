@@ -1,0 +1,187 @@
+<html>
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <style>
+        ul.file{
+            border:0px;
+        }
+    
+        ul.file li{
+            float: left;
+            list-style-type: none;
+            padding: 2px 20px;
+            margin: 2px;
+        }
+        
+        h1 {
+            font-size: 40px;
+            text-align: center;
+        }
+        
+        body {
+        	font-family:verdana;
+        }
+        
+        .headerLogo{
+          top:-65px;
+          height:150px;
+          line-height:150px;
+          width:100%;
+          max-width:10000px;
+          overflow:hidden;
+          
+        }
+        p{
+            padding-left:50;
+            line-height:2em;
+            padding-right:50;
+
+        }
+        img{
+            padding-left:50;
+
+        }
+        
+        h2{
+            text-align: center;
+
+        }
+        
+        h3{
+            padding-left:50;
+
+        }
+        body {
+            background-image: url("photo/grey.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+    </style>
+            <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+    </head>
+    
+    <body>
+        <!--Navigation bar-->
+        <div id="nav-placeholder">
+        </div>
+        
+        <script>
+        $(function(){
+          $("#nav-placeholder").load("nav.html");
+        });
+        </script>
+        <!--end of Navigation bar-->
+        <h1>Deep Learning</h1>
+        <p>This page will fit our data with Keras on Python.</p>
+        <p>The models contain: simpleRNN, LSTM and GRU.</p>
+        <p>For each model, this page provides the normal model and another model with dropout regularizations.</p>
+        <p>Since the data is collected 5 days per week, the model set lookback = 5 to predict the future data with the past 5 days.</p>
+        <p>Otherwise, the step and delay are both set to 1 to use every sampling day to predict one data in the future.</p>
+
+        <br>
+        <hr>
+        
+        <h3>Boston Beer company stock price</h3>
+        <p>
+            We will use the adjusted close price of boston beer company SAM as our dataset.
+        </p>
+            <img src="photo/w41.png" width="550" height="400">  
+        <br>
+        <br>
+        <hr>
+        
+        <h2>Deep Learning Models</h2>
+        <h3>SimpleRNN</h3>
+        <p>
+            For all models, we set epoch equal to 60 to see the performance.<br>
+            The SimpleRNN shows a great performance. Both validation loss and training loss are close to 0 at the end.<br>
+            For the second plot, it shows our predictions are very close to the true value in the test set.
+        </p>
+            <img src="photo/p61.png" width="40%" height="400">  
+            <img src="photo/p62.png" width="40%" height="400">  
+
+        <br>
+        <br>
+        <hr>
+        
+        <h3>SimpleRNN with Dropout Regularization</h3>
+        <p>
+            The dropout rate is 5%(0.05).<br>
+            Compare to the simpleRNN, the model with dropout shows clear higher losses.<br>
+            On the other hand, there is some difference exist between the prediction and true value. Our model may overfit by using dropout regularization.
+
+        </p>
+            <img src="photo/p63.png" width="40%" height="400">  
+            <img src="photo/p64.png" width="40%" height="400">  
+        <br>
+        <br>
+        <hr>
+        
+        
+        <h3>LSTM</h3>
+        <p>
+            Similar to simpleRNN. The LSTM shows low validation/training loss. <br>
+            For the prediction, it is similar to the true value but worse than the simpleRNN. The line does not match up on some turning points.
+
+
+        </p>
+            <img src="photo/p65.png" width="40%" height="400">  
+            <img src="photo/p66.png" width="40%" height="400">  
+        <br>
+        <br>
+        <hr>
+        <h3>LSTM with Dropout Regularization</h3>
+        <p>
+            The dropout rate is 5%(0.05).<br>
+            With the dropout regularization, predictions for our dataset do not change much.<br>
+            However, the validation loss shows a rapid decrease before epoch = 10.<br>
+            Same with LSTM itself, the losses are close to 0 at the end.
+        </p>
+            <img src="photo/p67.png" width="40%" height="400">  
+            <img src="photo/p68.png" width="40%" height="400">  
+        <br>
+        <br>
+        <hr>
+        <h3>GRU</h3>
+        <p>
+        In the GRU model, the model performance seems not as good as the previous two. The validation loss is not close to or equal to 0 at the end. However, it is still a low value.<br>
+        The prediction looks great with consistency to the true value in the dataset.
+        </p>
+            <img src="photo/p611.png" width="40%" height="400">  
+            <img src="photo/p612.png" width="40%" height="400">  
+        <br>
+        <br>
+        <hr>
+        
+        <h3>GRU with Dropout Regularization</h3>
+        <p>
+            The dropout rate is 5%(0.05).<br>
+            The GRU model gets a good validation/training loss value with dropout regularization.<br>
+            However, similar the SimpleRNN, the dropout may result in overfitting. <br>
+            The predictions have some difference with true value while using dropout regularization
+        </p>
+            <img src="photo/p613.png" width="40%" height="400">  
+            <img src="photo/p614.png" width="40%" height="400">  
+        <br>
+        <br>
+        <hr>
+        
+        <h3>Comparison and short summary</h3>
+        <p>
+            By comparison to other models like SARIMA and benchmarks methods, the MAE bar graph is shown below. <br>
+            The RNN model has a higher mean absolute error compared to the ARIMA model and drift method. However, it may have a better prediction by checking the previous work.<br>
+            By using dropout regularization in deep learning. We may get a model with a lower validation/training loss. However, we need to take care of overfitting.
+
+        </p>
+            <img src="photo/p615.png" width="50%" height="500">  
+        <br>
+        <br>
+        <hr>
+        
+    </body>
+
+
+</html>

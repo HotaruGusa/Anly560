@@ -1,0 +1,185 @@
+<html>
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <style>
+        ul.file{
+            border:0px;
+        }
+    
+        ul.file li{
+            float: left;
+            list-style-type: none;
+            padding: 2px 20px;
+            margin: 2px;
+        }
+        
+        h1 {
+            font-size: 40px;
+            text-align: center;
+        }
+        h3 {
+            text-align: center;
+        }
+        
+        body {
+        	font-family:verdana;
+        }
+        
+        .headerLogo{
+          top:-65px;
+          height:150px;
+          line-height:150px;
+          width:100%;
+          max-width:10000px;
+          overflow:hidden;
+          
+        }
+        p{
+            padding-left:50;
+            line-height:2em;
+            padding-right:50;
+
+        }
+        img{
+            padding-left:50;
+            padding-right:50;
+        }
+        
+        h2{
+            text-align: center;
+
+        }
+        
+        h3{
+            padding-left:50;
+
+        }
+        body {
+            background-image: url("photo/grey.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        } 
+
+    </style>
+            <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+    </head>
+    
+    <body>
+        <!--Navigation bar-->
+        <div id="nav-placeholder">
+        </div>
+        
+        <script>
+        $(function(){
+          $("#nav-placeholder").load("nav.html");
+        });
+        </script>
+        <!--end of Navigation bar-->
+        <h1>Conclusion</h1>
+        <hr>
+        <img src="photo/f3.png" alt="" class = "center" width="750" height="300">
+
+        <p>
+            Beer is one of the most common and popular alcohols in our life.<br>
+            According to TIMES report, More than 6 in every 10 American adults drink alcohol, and among those people, beer is consistently a clear favorite.<br>
+            In a 2017 Gallup poll, 40% of participants preferred beer, versus 30% for wine and 26% for liquor.<br>
+            It is important to do the research on a beer company. In this project, we focus on the adjusted stock price of SAM beer company located in Boston.
+        </p>
+
+        <br>
+        <hr>
+        
+     
+        
+        <h3>Boston Beer company stock price</h3>
+        <table style="width: 100%">
+        <colgroup>
+            <col span="1" style="width: 10%;">
+
+           <col span="1" style="width: 60%;">
+           <col span="1" style="width: 30%;">
+            <col span="1" style="width: 5%;">
+
+        </colgroup>
+        <tbody>
+        <tr>
+            <td></td>
+            <td>
+                The data contains the adjusted stock price from 2019 to early 2022.<br><br>
+                Again, from the original data, we can see a clear decrease from early 2021. <br><br>
+                The stock price seems to have some volatility and does not have a specific tendency from start to end.
+            </td>
+            <td><img src="photo/f1.png" width="550" height="400"></td>
+
+        </tr>
+        </tbody>
+        </table>
+        <br>
+        <hr>
+        
+        <h3>Different models</h3>
+        <table style="width: 100%">
+        <colgroup>
+            <col span="1" style="width: 5%;">
+
+           <col span="1" style="width: 30%;">
+           <col span="1" style="width: 60%;">
+            <col span="1" style="width: 10%;">
+
+        </colgroup>
+        <tbody>
+        <tr>
+            <td></td>
+            <td><img src="photo/f4.jpeg" width="300" height="350"></td>
+            <td>
+                From the previous work, the best ARIMA model is ARIMA(1,1,1).<br><br>
+                The seasonality may exist in the dataset so SARIMA(1,1,0)(0,1,1) can be considered for seasonality. <br><br>
+                The model ARCH(1) will work for the volatility.<br><br>
+                RNN models without dropout regularization can fit the dataset as well.<br><br>
+                The general idea provided by models is similar to each other.
+            </td>
+
+        </tr>
+        </tbody>
+        </table>
+        <br>
+        <hr>
+       
+        
+        <h3>Learning from models</h3>
+        <table style="width: 100%">
+        <colgroup>
+            <col span="1" style="width: 10%;">
+
+           <col span="1" style="width: 60%;">
+           <col span="1" style="width: 30%;">
+            <col span="1" style="width: 5%;">
+
+        </colgroup>
+        <tbody>
+        <tr>
+            <td></td>
+            <td>
+                Even though the stock price of SAM beer company has a significant decrease in 2021, we can judge it will increase with time goes by from different predictions in each model. <br><br>
+                People have been celebrating with beer for millennia. <br><br>
+                The demand for beer never decreased. The stock price may be influenced by COVID or other reasons in the recent year but prediction shows it will be back as time goes by.
+            </td>
+            <td><img src="photo/w324.png" width="550" height="400"></td>
+
+        </tr>
+        </tbody>
+        </table>
+        <br>
+        <hr>
+        
+    </body>
+
+
+</html>

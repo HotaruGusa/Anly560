@@ -1,0 +1,186 @@
+<html>
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <style>
+        ul.file{
+            border:0px;
+        }
+    
+        ul.file li{
+            float: left;
+            list-style-type: none;
+            padding: 2px 20px;
+            margin: 2px;
+        }
+        
+        h1 {
+            font-size: 40px;
+            text-align: center;
+        }
+        
+        body {
+        	font-family:verdana;
+        }
+        
+        .headerLogo{
+          top:-65px;
+          height:150px;
+          line-height:150px;
+          width:100%;
+          max-width:10000px;
+          overflow:hidden;
+          
+        }
+        p{
+            padding-left:50;
+            line-height:2em;
+            padding-right:50;
+
+        }
+        img{
+            padding-left:50;
+
+        }
+        
+        h2{
+            text-align: center;
+
+        }
+        
+        h3{
+            padding-left:50;
+
+        }
+        body {
+            background-image: url("photo/grey.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+    </style>
+            <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+    </head>
+    
+    <body>
+        <!--Navigation bar-->
+        <div id="nav-placeholder">
+        </div>
+        
+        <script>
+        $(function(){
+          $("#nav-placeholder").load("nav.html");
+        });
+        </script>
+        <!--end of Navigation bar-->
+        <h1>Exploratory Data Analysis</h1>
+        <p>This page will do the data analysis on the Boston Beer Company’s stock price.</p>
+        <br>
+        <hr>
+        
+
+        <h3>Stock Price with SAM company:</h3>
+        <p>
+            The data collects the stock price of SAM company, which is a company that produces beer in Boston. The data I choose is the adjusted close stock price.<br>
+            This is what the original data looks like. <br>
+            We can see a big increase from the end of 2019 to 2020. However, by the middle of  2020, the stock price becomes decrease.<br>
+            From the original graph, we can judge it has the tendency and not stationary. It is seasonal, not cyclic.<br>
+            The data should be additive because the seasonal variation looks constant, it does not change when the time series value increases.<br>
+
+        </p>
+            <img src="photo/p21.png" width="550" height="400">  
+        <br>
+        <br>
+        <hr>
+        
+        <h3>Lag plots</h3>
+        <p>
+            These are the lag plots of my dataset.<br>
+            These lag plots show significant correlation of the stock price. The value will not change in a short period. <br>
+            Otherwise, when we see lag 9, the correlation decreases but is still significant. <br>
+            This means even as the time periods become longer, the stock price still has linear relationships with the lags.
+        </p>
+        <img src="photo/p22.png" width="550" height="400"> 
+      
+        <br>
+        <br>
+        <hr>
+        
+        <h3>Decompositions</h3>
+        <p>
+            This is the decomposition of the stock price.<br>
+            The decomposition shows the tendency of stock price and seasonality.<br>
+            However, the randomness seems a little strange around 2020. The reason may be there is a huge and significant increase in 2020 so the graph has not much drop down performance.
+
+        </p>
+        <img src="photo/p23.png" width="550" height="400"> 
+       
+        <br>
+        <br>
+        <hr>
+        
+        <h3>ACF and PACF</h3>
+        <p>
+            There are the acf and pacf of the original dataset. <br>
+            The ACF plot shows the high correlation for the lags which we mentioned before. <br>
+            On the other hand, the plots indicate our data is not stationarity since it has a significant relationship with previous data.<br>
+
+        </p>
+        <img src="photo/p24.png" width="550" height="400"> 
+        <img src="photo/p25.png" width="550" height="400"> 
+
+        <br>
+        <br>
+        <hr>
+        
+        <h3>Augmented Dickey-Fuller Test</h3>
+        <p>
+            By using the Augmented Dickey-Fuller Test, we can see the p-value is 0.9778. <br>
+            It is greater than 0.05 so we can judge that the data is not stationary.
+        </p>
+        <img src="photo/p26.png" width="750" height="250"> 
+        
+        <h3>ACF with some transformation</h3>
+        <p>
+            The first graph is the original data, the second graph is the acf of differencing and the third one is acf of log transformation.<br>
+            The second and third acf plot  show the stationary. Which means the log-transformation was very successful.
+        </p>
+        <img src="photo/p27.png" width="550" height="400"> 
+        <br>
+        <br>
+        <hr>
+        
+        <h3>New Augmented Dickey-Fuller Test</h3>
+        <p>
+            By using the Augmented Dickey-Fuller Test to the log transformation, we can see the p-value is 0.01. <br>
+            It is smaller than 0.05 so we can judge that the data is stationary.
+        </p>
+        <img src="photo/p28.png" width="750" height="250"> 
+        <br>
+        <br>
+        <hr>
+        
+        <h3>Moving Average Smoothing</h3>
+        <p>
+            This is the moving Average Smoothing plots, I use different MA smoothing for my data.<br>
+            The first graph is plotted by MA = 7, which is a weekly time period. We can see the MA graph is overfit the original graph.<br>
+            The second graph is plotted by MA = 30, which is a monthly time period. We can see the MA graph has a small curve and follows with the original one.<br>
+            The third graph is plotted by MA = 90, which is a quarterly time period. We can see the MA graph has a curve and also follows with the original one.<br>
+            For these graphs, I may choose MA with 30 or 90. We can see the tendency of our data without overfitting or underfitting.
+
+        </p>
+        <img src="photo/p29.png" width="650" height="400"> 
+        <br>
+        <br>
+        <hr>
+        
+        <h3>The Code for this page:</h3>
+        <ul class = "file">
+        <li class = "file"><a href ="file/web2.pdf" target= "_blank">Exploratory Data Analysis</a></li>
+        </ul>
+        
+    </body>
+
+
+</html>
